@@ -8,7 +8,7 @@ type BlockTag = number | string;
 export declare class CrocPoolView {
     constructor(quoteToken: CrocTokenView, baseToken: CrocTokenView, context: Promise<CrocContext>);
     isInit(): Promise<boolean>;
-    spotPrice(block?: BlockTag): Promise<number>;
+    spotPrice(block?: BlockTag, poolIndex?: string | number): Promise<number>;
     displayPrice(block?: BlockTag): Promise<number>;
     spotTick(block?: BlockTag): Promise<number>;
     xykLiquidity(block?: BlockTag): Promise<TokenQty>;

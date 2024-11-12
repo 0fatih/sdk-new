@@ -26,10 +26,14 @@ class CrocPoolView {
                 .then(p => p > 0);
         });
     }
-    spotPrice(block) {
+    spotPrice(block, poolIndex) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             let txArgs = block ? { blockTag: block } : {};
-            let sqrtPrice = (yield this.context).query.queryPrice.staticCall(this.baseToken.tokenAddr, this.quoteToken.tokenAddr, (yield this.context).chain.poolIndex, txArgs);
+            let context = yield this.context;
+            if (!poolIndex) {
+                poolIndex = context.chain.poolIndex;
+            }
+            let sqrtPrice = context.query.queryPrice.staticCall(this.baseToken.tokenAddr, this.quoteToken.tokenAddr, poolIndex, txArgs);
             return (0, utils_1.decodeCrocPrice)(yield sqrtPrice);
         });
     }
@@ -104,8 +108,10 @@ class CrocPoolView {
             const gridSize = (yield this.context).chain.gridSize;
             const pinTick = (0, utils_1.pinTickOutside)(yield spotPrice, yield this.spotPrice(), gridSize);
             const pinPrice = this.toDisplayPrice((0, utils_1.tickToPrice)(pinTick.tick));
-            return Object.assign(pinTick, { price: yield pinPrice,
-                isPriceBelow: (yield pinPrice) < dispPrice });
+            return Object.assign(pinTick, {
+                price: yield pinPrice,
+                isPriceBelow: (yield pinPrice) < dispPrice
+            });
         });
     }
     initPool(initPrice) {

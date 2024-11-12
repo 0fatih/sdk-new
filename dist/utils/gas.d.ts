@@ -1,6 +1,6 @@
 import { ContractTransaction, Transaction } from "ethers";
 import { CrocEnv } from "../croc";
-export declare const GAS_PADDING: any;
+export declare const GAS_PADDING: bigint;
 /**
  * Compute the raw transaction data for a given transaction.
  *

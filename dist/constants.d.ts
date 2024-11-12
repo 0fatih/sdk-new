@@ -4,7 +4,7 @@ export declare const MIN_TICK = -665454;
 export declare const MAX_TICK = 831818;
 export declare const MAX_SQRT_PRICE: bigint;
 export declare const MIN_SQRT_PRICE: bigint;
-export declare const MAX_LIQ: number;
+export declare const MAX_LIQ: bigint;
 export interface ChainSpec {
     nodeUrl: string;
     wsUrl?: string;
