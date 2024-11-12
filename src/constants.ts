@@ -39,7 +39,7 @@ const ETHEREUM_LOGO =
 const SCROLL_LOGO =
   "https://develop--ambient-finance.netlify.app/scroll_logo.png";
 const BLAST_LOGO =
- "https://assets-global.website-files.com/65a6baa1a3f8ed336f415cb4/65a6cc95aae1066cf96d497d_Logo%20Black%20on%20Yellow%20Background%402x-p-500.png"
+  "https://assets-global.website-files.com/65a6baa1a3f8ed336f415cb4/65a6cc95aae1066cf96d497d_Logo%20Black%20on%20Yellow%20Background%402x-p-500.png"
 
 const DFLT_SDK_INFURA_KEY = '4741d1713bff4013bc3075ed6e7ce091'
 
@@ -282,6 +282,28 @@ const LOCAL_FORK_CHAIN: ChainSpec = Object.assign({}, GOERLI_CHAIN, {
   displayName: "Local Fork"
 });
 
+const MILLICENT_ONE_CHAIN: ChainSpec = {
+  nodeUrl: "https://testingusdc.rpc.caldera.xyz/http",
+  wsUrl: "wss://testingusdc.rpc.caldera.xyz/ws",
+  addrs: {
+    dex: "0x39A9Be092b54dAbBC89ac091802c985f68A7A3cC",
+    query: "0xB1f6448BE5934a57aD811465d2ae0326ae4c4DCa",
+    impact: "0xffd026d3b9BbBB2b27e45038f11290f4CCbaD756",
+  },
+  poolIndex: 36000,
+  isTestNet: true,
+  chainId: "0x2277c7",
+  gridSize: 64,
+  proxyPaths: {
+    cold: 3,
+    long: 4,
+    liq: 2
+  },
+  blockExplorer: "https://testingusdc.explorer.caldera.xyz/",
+  displayName: "Millicent One",
+  logoUrl: "https://raw.githubusercontent.com/millicentnetwork/.github/main/profile/assets/banner.png",
+}
+
 export const CHAIN_SPECS: { [chainId: string]: ChainSpec } = {
   "0x1": MAINNET_CHAIN,
   "0x5": GOERLI_CHAIN,
@@ -306,5 +328,7 @@ export const CHAIN_SPECS: { [chainId: string]: ChainSpec } = {
   "blast": BLAST_CHAIN,
   "blastSepolia": BLAST_SEPOLIA_CHAIN,
   "plumeSepolia": PLUME_SEPOLIA_CHAIN,
-  "zircuit": ZIRCUIT_CHAIN
+  "zircuit": ZIRCUIT_CHAIN,
+  "0x2277c7": MILLICENT_ONE_CHAIN,
+  "millicentOne": MILLICENT_ONE_CHAIN,
 };
