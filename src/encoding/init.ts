@@ -2,18 +2,18 @@ import { ethers } from "ethers";
 import { encodeCrocPrice } from "../utils/price";
 
 type Address = string;
-type PoolType = number;
+type PoolType = number | string;
 
 export class PoolInitEncoder {
 
-  constructor (baseToken: Address, quoteToken: Address, poolIdx: PoolType) {
+  constructor(baseToken: Address, quoteToken: Address, poolIdx: PoolType) {
     this.baseToken = baseToken
     this.quoteToken = quoteToken
     this.poolIdx = poolIdx
     this.abiCoder = new ethers.AbiCoder();
   }
 
-  encodeInitialize (initPrice: number): string {
+  encodeInitialize(initPrice: number): string {
     const crocPrice = encodeCrocPrice(initPrice)
     const POOL_INIT_TYPES = ["uint8", "address", "address", "uint256", "uint128"]
     return this.abiCoder.encode(POOL_INIT_TYPES,

@@ -1,5 +1,5 @@
 type Address = string;
-type PoolType = number;
+type PoolType = number | string;
 export declare class WarmPathEncoder {
     constructor(base: Address, quote: Address, poolIdx: PoolType);
     private base;

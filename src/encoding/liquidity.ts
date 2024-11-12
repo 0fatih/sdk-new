@@ -4,7 +4,7 @@ import { encodeCrocPrice } from "../utils/price";
 import { ZeroAddress } from "ethers";
 
 type Address = string;
-type PoolType = number;
+type PoolType = number | string;
 
 export class WarmPathEncoder {
   constructor(base: Address, quote: Address, poolIdx: PoolType) {

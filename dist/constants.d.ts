@@ -8,7 +8,7 @@ export declare const MAX_LIQ: bigint;
 export interface ChainSpec {
     nodeUrl: string;
     wsUrl?: string;
-    poolIndex: number;
+    poolIndex: number | string;
     addrs: {
         dex: ChainAddress;
         query: ChainAddress;

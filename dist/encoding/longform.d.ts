@@ -3,7 +3,7 @@ export declare class OrderDirective {
     constructor(openToken: string);
     encodeBytes(): BytesLike;
     appendHop(nextToken: string): HopDirective;
-    appendPool(poolIdx: number): PoolDirective;
+    appendPool(poolIdx: number | string): PoolDirective;
     appendRangeMint(lowTick: number, highTick: number, liq: bigint): ConcentratedDirective;
     appendAmbientMint(liq: bigint): AmbientDirective;
     appendRangeBurn(lowTick: number, highTick: number, liq: bigint): ConcentratedDirective;

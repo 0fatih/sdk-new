@@ -245,7 +245,7 @@ const MILLICENT_ONE_CHAIN = {
         query: "0xB1f6448BE5934a57aD811465d2ae0326ae4c4DCa",
         impact: "0xffd026d3b9BbBB2b27e45038f11290f4CCbaD756",
     },
-    poolIndex: 36000,
+    poolIndex: "79603607292434015356712849975738809502581798442418023777847580778868156399617",
     isTestNet: true,
     chainId: "0x2277c7",
     gridSize: 64,

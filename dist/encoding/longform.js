@@ -14,9 +14,11 @@ class OrderDirective {
         return ethers_1.ethers.concat([schema, open, hops]);
     }
     appendHop(nextToken) {
-        const hop = { settlement: simpleSettle(nextToken),
+        const hop = {
+            settlement: simpleSettle(nextToken),
             pools: [],
-            improve: { isEnabled: false, useBaseSide: false } };
+            improve: { isEnabled: false, useBaseSide: false }
+        };
         this.hops.push(hop);
         return hop;
     }
@@ -40,11 +42,13 @@ class OrderDirective {
         return pool;
     }
     appendRangeMint(lowTick, highTick, liq) {
-        const range = { lowTick: lowTick, highTick: highTick,
+        const range = {
+            lowTick: lowTick, highTick: highTick,
             isRelTick: false,
             isAdd: true,
             rollType: 0,
-            liquidity: liq < 0 ? -liq : liq };
+            liquidity: liq < 0 ? -liq : liq
+        };
         const pool = this.hops.at(-1).pools.at(-1);
         pool.passive.concentrated.push(range);
         return range;
@@ -67,8 +71,10 @@ class OrderDirective {
 exports.OrderDirective = OrderDirective;
 const LONG_FORM_SCHEMA_TYPE = 1;
 function simpleSettle(token) {
-    return { token: token, limitQty: BigInt(2) ** BigInt(125),
-        dustThresh: BigInt(0), useSurplus: false };
+    return {
+        token: token, limitQty: BigInt(2) ** BigInt(125),
+        dustThresh: BigInt(0), useSurplus: false
+    };
 }
 function encodeSettlement(dir) {
     let token = encodeToken(dir.token);

@@ -1,6 +1,6 @@
 import { BigNumberish } from "ethers";
 export declare class KnockoutEncoder {
-    constructor(base: string, quote: string, poolIdx: number);
+    constructor(base: string, quote: string, poolIdx: number | string);
     private base;
     private quote;
     private poolIdx;
