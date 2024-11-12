@@ -60,7 +60,7 @@ const WARM_ARG_TYPES = [
     "uint8", // Type call
     "address", // Base
     "address", // Quote
-    "uint24", // Pool Index
+    "uint256", // Pool Index
     "int24", // Lower Tick
     "int24", // Upper Tick
     "uint128", // Liquidity
